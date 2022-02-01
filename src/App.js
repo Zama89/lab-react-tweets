@@ -2,7 +2,8 @@ import "./App.css";
 import Tweet from "./components/Tweet";
 
 const tweetsArray = [
-  {
+
+  { 
     user: {
       name: "Thoughts of Dog®",
       image: "https://i.imgur.com/b0EdHVV.jpg",
@@ -37,7 +38,14 @@ const tweetsArray = [
 function App() {
   return (
     <div className="App">
-      <Tweet />
+    {Tweet.map((tweet, i) => {
+      return <Tweet
+          key={tweet.id} 
+          user={tweet.user} 
+          timestamp={tweet.timestamp} 
+          message={tweet.message} 
+          />
+    })}
     </div>
   );
 }
